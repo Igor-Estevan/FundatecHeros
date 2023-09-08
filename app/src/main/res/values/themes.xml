@@ -3,6 +3,7 @@
     <style name="Base.Theme.FundatecHeros" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#C3C3</item>
     </style>
 
     <style name="Theme.FundatecHeros" parent="Base.Theme.FundatecHeros" />
