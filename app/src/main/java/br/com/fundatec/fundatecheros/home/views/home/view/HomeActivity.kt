@@ -1,11 +1,8 @@
-package br.com.fundatec.fundatecheros.home.view
+package br.com.fundatec.fundatecheros.home.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import br.com.fundatec.fundatecheros.R
-import br.com.fundatec.fundatecheros.gone
-import br.com.fundatec.fundatecheros.home.presentation.model.HomeViewState
 
 class HomeActivity : AppCompatActivity() {
 

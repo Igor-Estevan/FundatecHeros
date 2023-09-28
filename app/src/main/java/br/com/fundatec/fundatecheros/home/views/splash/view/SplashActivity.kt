@@ -1,4 +1,4 @@
-package br.com.fundatec.fundatecheros.home.view
+package br.com.fundatec.fundatecheros.home.views
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,8 +12,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        var handler = Handler();
-        handler.postDelayed(Runnable() {
+        Handler().postDelayed({
             run() {
                 time()
             }

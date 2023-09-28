@@ -1,10 +1,8 @@
-package br.com.fundatec.fundatecheros.home.view
+package br.com.fundatec.fundatecheros.home.views
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import br.com.fundatec.fundatecheros.R
 import br.com.fundatec.fundatecheros.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -13,7 +11,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_login)
         setContentView(binding.root)
 
         binding.buttonLogin.setOnClickListener {
