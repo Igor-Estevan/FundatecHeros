@@ -1,10 +1,11 @@
-package br.com.fundatec.fundatecheros.home.views
+package br.com.fundatec.fundatecheros.home.views.splash.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import br.com.fundatec.fundatecheros.R
+import br.com.fundatec.fundatecheros.home.views.login.view.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
 

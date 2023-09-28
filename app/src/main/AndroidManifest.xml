@@ -12,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FundatecHeros"
         tools:targetApi="31">
-
         <activity
-            android:name=".home.view.SplashActivity"
+            android:name=".home.viewModel.ProfileActivityModel"
+            android:exported="false" />
+        <activity
+            android:name=".home.views.splash.view.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".home.view.LoginActivity"
+            android:name=".home.views.login.view.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".home.view.HomeActivity"
+            android:name=".home.views.home.view.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,7 +43,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".home.view.PofileActivity"
+            android:name=".home.views.profile.view.PofileActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,7 +51,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

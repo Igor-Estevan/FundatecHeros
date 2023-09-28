@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">FundatecHeros</string>
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="report_name">Informe seu nome</string>
+    <string name="report_email">Informe seu e-mail</string>
+    <string name="report_password">Informe sua senha</string>
+    <string name="login">Login</string>
+    <string name="button_create_account">Criar conta</string>
+    <string name="new_user">Novo por aqui?</string>
+    <string name="user_created">Usuário criado com sucesso 🥳</string>
 </resources>

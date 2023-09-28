@@ -1,4 +1,4 @@
-package br.com.fundatec.fundatecheros.home.views
+package br.com.fundatec.fundatecheros.home.views.home.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
