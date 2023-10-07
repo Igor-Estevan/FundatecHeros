@@ -20,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
         }, 3000);
     }
 
-    private fun time() {
+    fun time() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()

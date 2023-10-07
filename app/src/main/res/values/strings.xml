@@ -9,4 +9,21 @@
     <string name="button_create_account">Criar conta</string>
     <string name="new_user">Novo por aqui?</string>
     <string name="user_created">Usuário criado com sucesso 🥳</string>
+    <string name="report_nameHero">Informe o nome do seu personagem</string>
+    <string name="report_description">Informe a descrição do seu personagem</string>
+    <string name="report_url_image">Informe a URL da imagem do seu personagem</string>
+    <string name="button_create_hero">Criar personagem</string>
+
+    <string-array name="type_hero">
+        <item>Selecione o tipo de personagem</item>
+        <item>Herói</item>
+        <item>Vilão</item>
+    </string-array>
+
+    <string-array name="type_franchise">
+        <item>Selecione a franquia</item>
+        <item>Marvel</item>
+        <item>DC</item>
+    </string-array>
+
 </resources>

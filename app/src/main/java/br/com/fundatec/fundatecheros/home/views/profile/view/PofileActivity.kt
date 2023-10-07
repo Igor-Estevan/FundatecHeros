@@ -1,9 +1,12 @@
 package br.com.fundatec.fundatecheros.home.views.profile.view
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
+import br.com.fundatec.fundatecheros.R
 import br.com.fundatec.fundatecheros.databinding.ActivityProfileBinding
+import br.com.fundatec.fundatecheros.home.views.splash.view.SplashActivity
 import com.google.android.material.snackbar.Snackbar
 
 class PofileActivity : AppCompatActivity() {
@@ -34,7 +37,15 @@ class PofileActivity : AppCompatActivity() {
     }
 
     private fun resetForm() {
-        Snackbar.make(binding.buttonCreateNewUser, "Usuário Criado", Snackbar.LENGTH_LONG).show()
+        Snackbar.make(
+            binding.buttonCreateNewUser,
+            getString(R.string.user_created), Snackbar.LENGTH_LONG
+        ).show()
+        Handler().postDelayed({
+            run() {
+                SplashActivity().time()
+            }
+        }, 3000)
     }
 
     private fun invalidForm() {
