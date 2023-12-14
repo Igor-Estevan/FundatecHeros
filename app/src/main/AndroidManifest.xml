@@ -12,6 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/herois"
         android:supportsRtl="true"
+        android:name=".App"
         android:theme="@style/Theme.FundatecHeros"
         tools:targetApi="31">
 
@@ -31,10 +32,10 @@
             android:name=".home.views.home.view.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".home.views.profile.view.PofileActivity"
+            android:name=".home.views.profile.view.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".home.views.Heros.view.HerosActivity"
+            android:name=".home.views.heros.view.HeroActivity"
             android:exported="false" />
     </application>
 

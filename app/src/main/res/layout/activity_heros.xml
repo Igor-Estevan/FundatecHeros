@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.views.Heros.view.HerosActivity">
+    tools:context=".home.views.heros.view.HeroActivity">
 
     <ImageView
         android:id="@+id/hero"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="85dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginBottom="16dp"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toTopOf="@+id/til_nameHero"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +74,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/type_hero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_description">
@@ -95,10 +95,10 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="294dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/type_franchise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,14 +110,38 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="82dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_create_new_hero"
+        app:layout_constraintBottom_toTopOf="@+id/til_age_Hero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/type_hero" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_age_Hero"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type_franchise">
+
+        <com.vicmikhailau.maskededittext.MaskedEditText
+            android:id="@+id/age_Hero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Informe a idade do personagem"
+            android:imeOptions="actionDone"
+            android:inputType="date"
+            app:mask="##/##/####"
+            android:maxLength="10" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/button_create_new_hero"
@@ -127,7 +151,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_url_image"
+        app:layout_constraintTop_toBottomOf="@+id/til_age_Hero"
         app:layout_constraintVertical_bias="0.598" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

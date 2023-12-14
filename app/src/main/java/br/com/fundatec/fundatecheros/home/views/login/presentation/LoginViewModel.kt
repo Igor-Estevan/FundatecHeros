@@ -3,21 +3,46 @@ package br.com.fundatec.fundatecheros.home.views.login.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import br.com.fundatec.fundatecheros.home.views.login.presentation.model.LoginViewState
+import br.com.fundatec.fundatecheros.home.views.login.domain.LoginUseCase
+import br.com.fundatec.fundatecheros.home.views.login.domain.isValidEmail
+import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
+
+    private val useCase by lazy {
+        LoginUseCase()
+    }
 
     private val viewState: MutableLiveData<LoginViewState> = MutableLiveData()
     val state: LiveData<LoginViewState> = viewState
 
     fun validateInputs(email: String?, password: String?) {
-        if (email.isNullOrBlank()) {
+        viewState.value = LoginViewState.Loading
+
+        if (email.isNullOrBlank() || !email.isValidEmail()) {
             viewState.value = LoginViewState.ShowEmailError
+            return
         }
 
-        if (password.isNullOrBlank()) {
+        if (password.isNullOrBlank() || password.length < 8) {
+
             viewState.value = LoginViewState.ShowPasswordError
+            return
         }
+        fetchLogin(email = email, password = password)
+    }
 
+    private fun fetchLogin(email: String, password: String) {
+        viewModelScope.launch {
+            val isSuccessLogin = useCase.login(email = email, password = password)
+            viewState.value = if (isSuccessLogin) {
+                LoginViewState.ShowHomeScreen
+            } else {
+                LoginViewState.ShowErrorMessage
+            }
+
+        }
     }
 }

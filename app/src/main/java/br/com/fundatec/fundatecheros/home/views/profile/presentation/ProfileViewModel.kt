@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.fundatec.fundatecheros.home.views.login.domain.LoginUseCase
+import br.com.fundatec.fundatecheros.home.views.login.domain.isValidEmail
 import br.com.fundatec.fundatecheros.home.views.profile.model.ProfileViewState
 import kotlinx.coroutines.launch
 
@@ -21,9 +22,9 @@ class ProfileViewModel : ViewModel() {
     fun validateInputs(name: String?, email: String?, password: String?) {
         if (name.isNullOrBlank()) {
             viewState.value = ProfileViewState.ShowNameError
-        } else if (email.isNullOrBlank()) {
+        } else if (email.isNullOrBlank() || !email.isValidEmail()) {
             viewState.value = ProfileViewState.ShowEmailError
-        } else if (password.isNullOrBlank()) {
+        } else if (password.isNullOrBlank() || password.length < 8) {
             viewState.value = ProfileViewState.ShowPasswordError
         } else {
             Log.e("viewModel","validateInputs")

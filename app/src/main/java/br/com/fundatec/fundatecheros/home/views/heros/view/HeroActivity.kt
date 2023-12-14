@@ -1,15 +1,18 @@
-package br.com.fundatec.fundatecheros.home.views.Heros.view
+package br.com.fundatec.fundatecheros.home.views.heros.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import androidx.activity.viewModels
 import br.com.fundatec.fundatecheros.R
 import br.com.fundatec.fundatecheros.databinding.ActivityHerosBinding
-import br.com.fundatec.fundatecheros.databinding.ActivityLoginBinding
+import br.com.fundatec.fundatecheros.home.views.heros.presentation.HeroViewModel
 
-class HerosActivity : AppCompatActivity() {
+private const val DELAY_TELA = 3000L
+class HeroActivity : AppCompatActivity() {
 
+    private val heroViewModel: HeroViewModel by viewModels()
     private lateinit var binding: ActivityHerosBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,6 +1,10 @@
 package br.com.fundatec.fundatecheros.home.views.login.data.repository
 
 import android.util.Log
+import br.com.fundatec.fundatecheros.database.FHDatabase
+import br.com.fundatec.fundatecheros.home.views.login.data.local.UserEntity
+import br.com.fundatec.fundatecheros.home.views.login.data.remote.LoginResponse
+import java.util.Date
 import br.com.fundatec.fundatecheros.home.views.login.data.LoginRequest
 import br.com.fundatec.fundatecheros.network.RetrofitNetworkClient
 import kotlinx.coroutines.Dispatchers
@@ -13,6 +17,10 @@ class LoginRepository {
         baseUrl = "https://fundatec.herokuapp.com"
     ).create(LoginService::class.java)
 
+    private val database: FHDatabase by lazy {
+        FHDatabase.getInstance()
+    }
+
     suspend fun createUser(
         name: String,
         email: String,
@@ -20,9 +28,9 @@ class LoginRepository {
     ): Boolean {
         return withContext(Dispatchers.IO) {
             try {
-                Log.e("createUser","name $name")
-                Log.e("createUser","email $email")
-                Log.e("createUser","password $password")
+                Log.e("createUser", "name $name")
+                Log.e("createUser", "email $email")
+                Log.e("createUser", "password $password")
                 val response = repository.createUser(
                     loginRequest = LoginRequest(
                         name = name,
@@ -35,6 +43,55 @@ class LoginRepository {
                 Log.e("createUser", ex.message.toString())
                 false
             }
+        }
+    }
+
+    suspend fun login(
+        email: String,
+        password: String,
+    ): Boolean {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = repository.login(
+                    email = email,
+                    password = password,
+                )
+                response.body()?.tooUserEntity()?.let { userEntity ->
+                    database.userDao().insertUser(userEntity)
+                }
+                response.isSuccessful
+            } catch (ex: Exception) {
+                Log.e("login", ex.message.toString())
+                false
+            }
+        }
+    }
+
+    private fun LoginResponse.tooUserEntity(): UserEntity {
+        return UserEntity(
+            id = id,
+            name = name,
+            email = email,
+            password = password,
+            date = Date()
+        )
+    }
+
+    suspend fun getDateCache(): Date? {
+        return withContext(Dispatchers.IO) {
+            database.userDao().getUserDate()
+        }
+    }
+
+    suspend fun clearDateCache() {
+        return withContext(Dispatchers.IO) {
+            database.userDao().clearCache()
+        }
+    }
+
+    suspend fun getId(): Int {
+        return withContext(Dispatchers.IO) {
+            database.userDao().userId()
         }
     }
 

@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -62,5 +63,9 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.2.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:1.6.0")
+    implementation("androidx.room:room-runtime:2.4.1")
+    implementation("androidx.room:room-ktx:2.4.1")
+    kapt("androidx.room:room-compiler:2.4.1")
+    implementation("io.github.vicmikhailau:MaskedEditText:5.0.1") // Mascára de editText
 
 }
