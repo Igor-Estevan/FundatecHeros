@@ -1,5 +1,7 @@
 package br.com.fundatec.fundatecheros.home.views.heros.presentation.model
 
+import br.com.fundatec.fundatecheros.home.views.profile.model.ProfileViewState
+
 sealed class HeroViewState {
 
     object ShowNameError: HeroViewState()
@@ -12,6 +14,8 @@ sealed class HeroViewState {
     object ShowHomeScreen: HeroViewState()
 
     object ShowGenericError: HeroViewState()
+
+    object Loading : HeroViewState()
 
 
 }

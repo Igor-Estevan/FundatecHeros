@@ -4,13 +4,13 @@ import java.lang.IllegalArgumentException
 
 enum class HeroType {
 
-    Heroi, Vilao;
+    HERO, VILLAIN;
 
     companion object{
         fun getValueOf(position: Int): String {
             return when (position) {
-                1 -> Heroi.name
-                2 -> Vilao.name
+                1 -> HERO.name
+                2 -> VILLAIN.name
                 else -> throw IllegalArgumentException("Classificação Inválida")
             }
         }

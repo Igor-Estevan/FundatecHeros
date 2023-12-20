@@ -119,27 +119,55 @@
         app:layout_constraintTop_toBottomOf="@+id/type_hero" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_birthday_Hero"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_age_Hero">
+
+        <com.vicmikhailau.maskededittext.MaskedEditText
+            android:id="@+id/birthday_Hero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Informe a data de aniversário"
+            android:imeOptions="actionDone"
+            android:inputType="date"
+            android:maxLength="10"
+            app:layout_constraintBottom_toTopOf="@+id/button_create_new_hero"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_age_Hero"
+            app:mask="##/##/####" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_age_Hero"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/til_birthday_Hero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/type_franchise">
 
-        <com.vicmikhailau.maskededittext.MaskedEditText
+        <EditText
             android:id="@+id/age_Hero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Informe a idade do personagem"
+            android:hint="Informe a idade do seu personagem"
             android:imeOptions="actionDone"
-            android:inputType="date"
-            app:mask="##/##/####"
-            android:maxLength="10" />
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,11 +175,22 @@
         android:id="@+id/button_create_new_hero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="@string/button_create_hero"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_age_Hero"
-        app:layout_constraintVertical_bias="0.598" />
+        app:layout_constraintTop_toBottomOf="@+id/til_birthday_Hero" />
+
+    <ProgressBar
+        android:id="@+id/pb_loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

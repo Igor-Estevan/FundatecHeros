@@ -13,6 +13,7 @@ class HeroUseCase {
         name: String,
         description: String,
         image: String,
+        universeType: String,
         characterType: String,
         age: Int,
         birthday: String?,
@@ -22,14 +23,19 @@ class HeroUseCase {
             name = name,
             description = description,
             image = image,
+            universeType = universeType,
             characterType = characterType,
             age = age,
-            birthday = null,
+            birthday = birthday,
         )
     }
 
     suspend fun listHero(): List<HeroResponse> {
         return repository.listHero();
     }
+
+//    suspend fun deleteHero(characterId: Int):Boolean {
+//        return repository.removeHero(characterId);
+//    }
 
 }

@@ -17,6 +17,12 @@
     <string name="password_error">Digite uma senha válida</string>
     <string name="login_error">Erro ao fazer login! Tente novamente mais tarde! 😕</string>
     <string name="user_created_error">Ocorreu um erro ao criar o usuário</string>
+    <string name="hero_created_error">Ocorreu um erro ao criar o personagem</string>
+    <string name="report_age">Informe a idade do seu personagem</string>
+    <string name="report_birthday">Informe a data de aniversário do seu personagem</string>
+    <string name="hero_type_error">Selecione o tipo de personagem</string>
+    <string name="universe_type_error">Selecione o universo do seu personagem</string>
+    <string name="sucess_hero_create">Personagem criado com sucesso</string>
 
     <string-array name="type_hero">
         <item>Selecione o tipo de personagem</item>

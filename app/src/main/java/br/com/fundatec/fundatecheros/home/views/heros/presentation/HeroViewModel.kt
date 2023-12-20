@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.fundatec.fundatecheros.home.views.heros.domain.HeroUseCase
+import br.com.fundatec.fundatecheros.home.views.heros.presentation.model.HeroType
 import br.com.fundatec.fundatecheros.home.views.heros.presentation.model.HeroViewState
+import br.com.fundatec.fundatecheros.home.views.heros.presentation.model.UniverseType
 import kotlinx.coroutines.launch
 
 class HeroViewModel : ViewModel() {
@@ -22,7 +24,7 @@ class HeroViewModel : ViewModel() {
         description: String,
         image: String,
         universeType: Int,
-        characterType: String,
+        characterType: Int,
         age: String,
         birthday: String
     ) {
@@ -38,7 +40,7 @@ class HeroViewModel : ViewModel() {
         } else if (universeType == 0) {
             viewState.value = HeroViewState.ShowUniverseTypeError
             return
-        } else if (characterType.isNullOrBlank()) {
+        } else if (characterType == 0) {
             viewState.value = HeroViewState.ShowCharacterTypeError
             return
         } else if (age.isNullOrBlank()) {
@@ -50,9 +52,8 @@ class HeroViewModel : ViewModel() {
                     name = name,
                     description = description,
                     image = image,
-                    characterType = characterType,
-//                    universeType = UniverseType.getValueOf(universeType),
-//                    characterType = CharacterType.getValueOf(characterType),
+                    universeType = UniverseType.getValueOf(universeType),
+                    characterType = HeroType.getValueOf(characterType),
                     age = age.toInt(),
                     birthday = null
                 )
