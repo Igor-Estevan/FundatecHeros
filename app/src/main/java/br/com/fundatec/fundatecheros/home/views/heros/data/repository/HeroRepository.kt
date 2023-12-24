@@ -1,5 +1,6 @@
 package br.com.fundatec.fundatecheros.home.views.heros.data.repository
 
+import br.com.fundatec.fundatecheros.database.FHDatabase
 import br.com.fundatec.fundatecheros.home.views.heros.data.HeroRequest
 import br.com.fundatec.fundatecheros.home.views.heros.data.remote.HeroResponse
 import br.com.fundatec.fundatecheros.home.views.heros.presentation.model.UniverseType
@@ -26,7 +27,7 @@ class HeroRepository {
         characterType: String,
         age: Int,
         birthday: String?,
-    ):Boolean {
+    ): Boolean {
         return withContext(Dispatchers.IO) {
             try {
                 val response = repository.createHero(
@@ -54,31 +55,23 @@ class HeroRepository {
                 val response = repository.listHero(
                     userId = loginRepository.getId()
                 )
-                response.body()?: listOf()
+                response.body() ?: listOf()
             } catch (ex: Exception) {
                 listOf();
             }
         }
     }
 
-//    suspend fun removeHero(characterId: Int):Boolean {
-//        return withContext(Dispatchers.IO) {
-//            try {
-//                val response = repository.removeHero(
-//                    characterId
-//                )
-//                response.code() == 204
-//            } catch (ex: Exception) {
-//                false
-//            }
-//        }
-//    }
-
-
-//    suspend fun clearDateCache() {
-//        return withContext(Dispatchers.IO) {
-//            database.heroDao().clearCache()
-//        }
-//    }
-
+    suspend fun removeHero(characterId: Int): Boolean {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = repository.removeHero(
+                    characterId
+                )
+                response.code() == 204
+            } catch (ex: Exception) {
+                false
+            }
+        }
+    }
 }

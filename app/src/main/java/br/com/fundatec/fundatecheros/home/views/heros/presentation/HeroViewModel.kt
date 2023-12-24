@@ -64,5 +64,6 @@ class HeroViewModel : ViewModel() {
                 }
             }
         }
+        viewState.value = HeroViewState.Loading
     }
 }

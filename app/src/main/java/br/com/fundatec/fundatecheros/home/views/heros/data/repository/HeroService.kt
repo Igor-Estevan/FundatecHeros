@@ -16,13 +16,13 @@ interface HeroService {
     suspend fun createHero(
         @Path("userId") userId: Int,
         @Body heroRequest: HeroRequest
-    ): Response<HeroResponse>
+    ): Response<ResponseBody>
 
     @GET("/api/character/{userId}")
     suspend fun listHero(@Path("userId") userId: Int): Response<List<HeroResponse>>
 
     @DELETE("/api/character/{idCharacter}")
-    suspend fun removeCharacter(
+    suspend fun removeHero(
         @Path("idCharacter") idCharacter: Int,
     ): Response<ResponseBody>
 

@@ -18,7 +18,7 @@ class HomeViewModel : ViewModel() {
     private val viewState: MutableLiveData<HomeViewState> = MutableLiveData()
     val state: LiveData<HomeViewState> = viewState
 
-    private fun searchInfo() {
+     fun searchInfo() {
         viewModelScope.launch {
             val listHero = useCase.listHero()
             if (listHero.isNotEmpty()) {
@@ -28,10 +28,19 @@ class HomeViewModel : ViewModel() {
                 viewState.value = HomeViewState.Error("Lista Vazia")
             }
         }
+        viewState.value = HomeViewState.Loading
     }
 
-    init {
-        searchInfo()
+    fun removeHero(characterId: Int) {
+        viewModelScope.launch {
+            val heroDelete = useCase.deleteHero(characterId)
+            if(heroDelete) {
+                viewState.value = HomeViewState.HeroRemove;
+            } else {
+                viewState.value = HomeViewState.Error("Não existe o personagem informado.")
+            }
+        }
     }
+
 
 }

@@ -23,6 +23,10 @@
     <string name="hero_type_error">Selecione o tipo de personagem</string>
     <string name="universe_type_error">Selecione o universo do seu personagem</string>
     <string name="sucess_hero_create">Personagem criado com sucesso</string>
+    <string name="hero_delete_successful">Personagem deletado com sucesso</string>
+    <string name="hero_detail_description">Descrição: %1$s</string>
+    <string name="hero_detail_age">Idade: %1$s</string>
+    <string name="hero_detail_birthday">Nascimento: %1$s</string>
 
     <string-array name="type_hero">
         <item>Selecione o tipo de personagem</item>

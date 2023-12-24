@@ -25,11 +25,6 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        nameFocusListener()
-//        emailFocusListener()
-//        passwordFocusListener()
-
-//        binding.buttonCreateNewUser.setOnClickListener { submitForm() }
 
         viewModel.state.observe(this) {
             when (it) {

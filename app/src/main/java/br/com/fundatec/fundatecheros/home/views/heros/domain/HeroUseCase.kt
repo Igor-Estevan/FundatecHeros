@@ -34,8 +34,8 @@ class HeroUseCase {
         return repository.listHero();
     }
 
-//    suspend fun deleteHero(characterId: Int):Boolean {
-//        return repository.removeHero(characterId);
-//    }
+    suspend fun deleteHero(characterId: Int):Boolean {
+        return repository.removeHero(characterId);
+    }
 
 }

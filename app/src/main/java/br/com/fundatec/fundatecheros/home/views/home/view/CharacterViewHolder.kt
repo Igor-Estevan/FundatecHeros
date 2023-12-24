@@ -6,12 +6,18 @@ import br.com.fundatec.fundatecheros.home.views.home.domain.HeroModel
 import com.bumptech.glide.Glide
 
 class CharacterViewHolder(
-    private val binding: CharacterListItemBinding
+    private val binding: CharacterListItemBinding,
+    private val click: (HeroModel) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(character: HeroModel) {
         binding.tvName.text = character.name
         Glide.with(binding.root.context)
             .load(character.image)
             .into(binding.ivCharacter)
+
+        binding.ivCharacter.setOnClickListener {
+            click(character)
+
+        }
     }
 }
